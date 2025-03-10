@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <x-guest-layout>
-                    <form method="POST" action="{{ route('order.store') }}">
+                    <form method="POST" action="{{ route('customer.store') }}">
                         @csrf
                         <div class="mt-4">
                             <x-input-label for="item" :value="__('Item')" />
