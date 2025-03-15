@@ -18,7 +18,7 @@ class RoleMiddleware
     {
         if (!Auth::check() || Auth::user()->role !== $role)
         {
-            return abort(403, 'Unauthorized access');
+            return abort(403);
         }
 
         return $next($request);

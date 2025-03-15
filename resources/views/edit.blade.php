@@ -9,24 +9,25 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <x-guest-layout>
-                    <form method="POST" action="{{ route('customer.store') }}">
+                    <form method="POST" action="{{ route('customer.update', compact('order')) }}">
+                        @method('PUT')
                         @csrf
                         <div class="mt-4">
                             <x-input-label for="item" :value="__('Item')" />
                 
-                            <x-text-input id="item" class="block mt-4 w-full" type="text" name="item"/>
+                            <x-text-input id="item" class="block mt-4 w-full" type="text" name="item" value="{{ $order->item }}"/>
                 
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="quantity" :value="__('Quantity')" />
                 
-                            <x-text-input id="quantity" class="block mt-4 w-full" type="number" name="quantity"/>
+                            <x-text-input id="quantity" class="block mt-4 w-full" type="number" name="quantity" value="{{ $order->quantity }}"/>
                 
                         </div>
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ms-4 mt-4">
-                                {{ __('Add Order') }}
+                                {{ __('Update') }}
                             </x-primary-button>
                         </div>
                     </form>
